@@ -10,15 +10,18 @@ interface ChatMessageProps {
 }
 
 const ChatMessage = (props: ChatMessageProps) => {
+  const isChatMine = props.userId === props.chat.userId;
+
   return (
     <>
-      <ChatMessageText chat={props.chat} userId={props.userId}/>      
-      {props.chat.userId !== props.userId && <UpVoteMessageText
+      <ChatMessageText chat={props.chat} isChatMine={isChatMine}/>      
+      <UpVoteMessageText
         chat={props.chat}
         onUpVoteClick={props.onUpVoteClick}      
         showDismissButton={props.showDismissButton}
         onDispatchClick={props.onDispatchClick}
-      />}
+        isChatMine={isChatMine}
+      />
     </>
   );
 };

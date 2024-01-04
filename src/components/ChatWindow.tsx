@@ -16,6 +16,7 @@ interface ChatWindowProps {
 
 const ChatWindow = (props: ChatWindowProps) => {
   const showDismissButton = props.showInputBox ? false : true;
+  
   if (props.showInputBox) {
     return (
       <div className="text-center border-r w-full">

@@ -2,14 +2,13 @@ import { Chat } from "@/models/Chat";
 
 interface ChatMessageTextProps {
   chat: Chat;
-  userId: number;
+  isChatMine: boolean;
 }
 const ChatMessageText = (props: ChatMessageTextProps) => {
-  const isChatMine = props.userId === props.chat.userId;
-  const className = isChatMine
+  const className = props.isChatMine
     ? "text-sm w-full text-right"
     : "text-sm w-full text-left";
-  const displayName = isChatMine
+  const displayName = props.isChatMine
     ? "Me"
     : props.chat.userName + " " + props.chat.userId.toString();
   return (
